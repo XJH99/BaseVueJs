@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .active{
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+<div id="app">
+  <!--<h2 :class="{类名1:Boolean, 类名2: Boolean}">{{message}}</h2>-->
+  <h2 :class="{active:isActive, line: isLine}">{{message}}</h2>
+
+  <!--使用一个按钮来控制class的颜色-->
+  <button @click="Cli">按钮</button>
+
+
+</div>
+
+<script src="../js/vue.js"></script>
+
+<script>
+  const app = new Vue({
+    el: '#app',
+    data:{
+      message: '你好',
+      isActive: true,
+      isLine: true
+    },
+    methods: {
+      Cli: function () {
+        this.isActive=!this.isActive
+      }
+    }
+  })
+</script>
+
+</body>
+</html>

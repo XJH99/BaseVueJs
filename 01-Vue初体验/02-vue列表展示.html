@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script src="../js/vue.js"></script>
+
+<div id="app">
+    <ul>
+        <li v-for="item in movies">{{item}}</li>    <!--v-for遍历的作用-->
+    </ul>
+</div>
+
+<script>
+
+    const app=new Vue({
+        el:"#app",
+        data:{
+            message:'电影',
+            movies:['大话西游','水浒传','西游记']
+        }
+    })
+</script>
+
+</body>
+</html>

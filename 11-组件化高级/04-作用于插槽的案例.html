@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <cpn></cpn>
+  <cpn>
+    <template slot-scope="slot">
+      <!--<span v-for="item in slot.data">{{item}} +</span>-->
+      <span >{{slot.data.join(' * ')}}</span> <!--就是将子组件的数据用于父组件的模板-->
+    </template>
+  </cpn>
+
+</div>
+
+<template id="cpn">
+  <div>
+    <slot :data="languages">
+      <ul>
+        <li v-for="item in languages">{{item}}</li>
+      </ul>
+    </slot>
+  </div>
+</template>
+
+<script src="../js/vue.js"></script>
+
+<script>
+  const app = new Vue({
+    el: '#app',
+    data:{
+      message: '你好'
+    },
+    components: {
+      cpn: {
+        template: '#cpn',
+        data() {
+          return{
+            languages: ['java','javaScript','python','c++','c#']
+          }
+        }
+      }
+    }
+  })
+</script>
+
+</body>
+</html>
